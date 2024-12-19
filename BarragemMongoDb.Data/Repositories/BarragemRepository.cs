@@ -5,7 +5,7 @@ using BarragemMongoDb.Domain.Repositories;
 using MongoDB.Driver;
 
 namespace BarragemMongoDb.Data.Repositories
-{
+{  
     public class BarragemRepository : IBarragemRepository
     {
         private readonly IMongoCollection<Barragem> _collection;
