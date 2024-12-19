@@ -1,0 +1,41 @@
+﻿@page "/anm"
+@using BarragemMongoDb.Domain.Dtos
+@using BarragemMongoDb.Web.ApiClient
+@using Syncfusion.Blazor.Data
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+@inject BarragemApiClient BarragemApiClient;
+
+<PageTitle>Barragens ANM</PageTitle>
+
+<SfGrid DataSource="@Barragens" AllowTextWrap="true" AllowSorting="true" RowHeight="36" AllowGrouping="true" EnableVirtualization="true" Height="600px">
+    <GridColumns>
+       <GridColumn Field=@nameof(BarragemDto.CodigoBarragemFiscalizador) HeaderText="Codigo" TextAlign="TextAlign.Left" Width="50" AllowFiltering="false">
+        </GridColumn> 
+        <GridColumn Field=@nameof(BarragemDto.NomeDaBarragem) HeaderText="Nome da Barragem" Width="150"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.NomeDoEmpreendedor) HeaderText="Empreendedor" Width="150"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.Municipio) HeaderText="Municipio" Width="100"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.UF) HeaderText="UF" Width="30"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.DanoPotencialAssociado) HeaderText="DPA" Width="70" AllowFiltering="false">
+            <FilterTemplate>
+                <span></span>
+            </FilterTemplate>
+        </GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.CategoriaDeRisco) HeaderText="CRI" Width="70" AllowFiltering="false">
+            <FilterTemplate>
+                <span></span>
+            </FilterTemplate>
+        </GridColumn>
+    </GridColumns>
+</SfGrid>
+
+@code {
+    public List<BarragemDto> Barragens { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Barragens = await BarragemApiClient.GetANMBarragensAsync();
+
+        await base.OnInitializedAsync();
+    }
+}

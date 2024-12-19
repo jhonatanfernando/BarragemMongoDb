@@ -1,0 +1,36 @@
+﻿@page "/barragens"
+@using BarragemMongoDb.Domain.Dtos
+@using Syncfusion.Blazor.Data
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Barragens</PageTitle>
+
+<SfGrid TValue="BarragemDto" AllowPaging="true" AllowTextWrap="true" AllowSorting="true">
+    <SfDataManager Url="api/Barragem" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
+    <GridColumns>
+        <GridColumn Field=@nameof(BarragemDto.CodigoSNISB) HeaderText="Codigo SNISB" TextAlign="TextAlign.Left" Width="50" AllowFiltering="false">
+            <FilterTemplate>
+                <span></span>
+            </FilterTemplate>
+        </GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.NomeDaBarragem) HeaderText="Nome da Barragem" Width="150"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.NomeDoEmpreendedor) HeaderText="Empreendedor" Width="150"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.Municipio) HeaderText="Municipio" Width="100"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.UF) HeaderText="UF" Width="30"></GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.DanoPotencialAssociado) HeaderText="DPA" Width="70" AllowFiltering="false">
+            <FilterTemplate>
+                <span></span>
+            </FilterTemplate>
+        </GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.CategoriaDeRisco) HeaderText="CRI" Width="70" AllowFiltering="false">
+            <FilterTemplate>
+                <span></span>
+            </FilterTemplate>
+        </GridColumn>
+        <GridColumn Field=@nameof(BarragemDto.OrgaoFiscalizador) HeaderText="Orgao Fiscalizador" Width="100"></GridColumn>
+    </GridColumns>
+</SfGrid>
+
+@code {
+}

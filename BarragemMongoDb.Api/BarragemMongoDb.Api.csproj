@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.MongoDB.Driver" Version="9.0.0" />
+    <PackageReference Include="Carter" Version="9.0.0" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BarragemMongoDb.Application\BarragemMongoDb.Application.csproj" />
+    <ProjectReference Include="..\BarragemMongoDb.Data\BarragemMongoDb.Data.csproj" />
+    <ProjectReference Include="..\BarragemMongoDb.Domain\BarragemMongoDb.Domain.csproj" />
+    <ProjectReference Include="..\BarragemMongoDb.ServiceDefaults\BarragemMongoDb.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>
